@@ -1,0 +1,57 @@
+﻿@tenantId = 3601CAA4-885D-4CBD-9291-489C2B0F0F61
+@baseUrl = https://localhost:7117/api/{{tenantId}}
+@productId = 7ed8ba4b-619f-435e-afe3-d4400b84f70b
+
+### New product
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "id": "{{productId}}",
+  "code": "IP5258",
+  "name": "iPhone 14 Pro 128 GB čierny",
+  "description": "Mobilný telefón – 6.1 OLED 2556 × 1179, 120Hz, procesor Apple A16 Bionic 6-jadrový, RAM 6GB, interná pamäť 128GB, zadný fotoaparát s optickým zoomom 48Mpx (f/1.78)+12Mpx (f/1.78)+12Mpx (f/2.2), predný fotoaparát 12Mpx, optická stabilizácia,",
+  "price": 899,
+  "pictureFileName": "string",
+  "productType": "Mobile phones",
+  "productBrand": "iPhone",
+  "availableStock": 10
+}
+
+### Get products
+GET {{baseUrl}}/products?select=code,name,price
+
+### Create basket
+POST {{baseUrl}}/baskets/
+Content-Type: application/json
+
+{
+  "items": [
+      {
+          "product": {
+              "id": "{{productId}}",
+              "code": "IP5258",
+              "name": "iPhone 14 Pro 128 GB čierny"
+          },
+          "unitPrice": 899,
+          "amount": 1,
+          "totalPrice": 899
+    }
+  ],
+  "totalPrice": 899
+}
+
+### Create order
+POST {{baseUrl}}/orders/create
+Content-Type: application/json
+
+"{{tenantId}}"
+
+### Get orders
+GET {{baseUrl}}/orders
+
+### Complete order
+PUT {{baseUrl}}/orders/complete/badb1747-3f92-4ba8-be8a-08db770b7ad4
+
+### Get invoices
+GET {{baseUrl}}/invoices
