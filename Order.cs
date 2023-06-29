@@ -164,7 +164,7 @@ public class OrderModule : IModuleContext<Order>
             .WithWriteOnlyService<OrderWriteService>()
             .WithApiBuilder<OrderApiBuilder>()
             .WithEventHandler<OrderEventHandler>()
-            //.WithEventHandler<OrderStatusChangeHandler>()
+            .WithEventHandler<OrderStatusChangeHandler>(ServiceLifetime.Scoped)
             .WithValidator<OrderValidator>();
     }
 }

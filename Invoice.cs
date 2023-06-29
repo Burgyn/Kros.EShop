@@ -8,7 +8,7 @@ public class Invoice : Entity<Guid>
 
     public DateTime IssueDate { get; set; }
 
-    public IEnumerable<InvoiceItem> Items { get; set; }
+    public List<InvoiceItem> Items { get; set; }
 }
 
 public class InvoiceItem : Entity<Guid>

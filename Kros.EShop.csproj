@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kros.Framework.Core" Version="1.0.0-alfa2" />
-    <PackageReference Include="Kros.Framework.Cosmos" Version="1.0.0-alfa2" />
-    <PackageReference Include="Kros.Framework.SqlServer" Version="1.0.0-alfa2" />
+    <PackageReference Include="Kros.Framework.Core" Version="1.0.0-alfa4" />
+    <PackageReference Include="Kros.Framework.Cosmos" Version="1.0.0-alfa4" />
+    <PackageReference Include="Kros.Framework.SqlServer" Version="1.0.0-alfa4" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
