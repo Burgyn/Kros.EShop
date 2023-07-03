@@ -1,11 +1,8 @@
 ﻿using Kros.Framework.Mediator;
 using Kros.Framework.Modules;
 
-<<<<<<< HEAD
 namespace Kros.EShop;
 
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 public interface IEntityWithPrice : IEntity
 {
     decimal TotalPrice { get; set; }

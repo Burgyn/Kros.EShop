@@ -189,10 +189,7 @@ namespace Kros.EShop.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Number")
-<<<<<<< HEAD
                         .IsRequired()
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("OrderDate")

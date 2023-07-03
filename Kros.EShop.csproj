@@ -7,26 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="Kros.Framework.Core" Version="1.1.1" />
     <PackageReference Include="Kros.Framework.Cosmos" Version="1.1.1" />
     <PackageReference Include="Kros.Framework.SqlServer" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
-=======
-    <PackageReference Include="Kros.Framework.Core" Version="1.0.0-alfa4" />
-    <PackageReference Include="Kros.Framework.Cosmos" Version="1.0.0-alfa4" />
-    <PackageReference Include="Kros.Framework.SqlServer" Version="1.0.0-alfa4" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-<<<<<<< HEAD
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
   </ItemGroup>
 
 </Project>

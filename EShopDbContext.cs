@@ -1,9 +1,6 @@
 ﻿using Kros.Framework.Modules;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 
 namespace Kros.EShop;
 
@@ -42,7 +39,6 @@ public class EShopDbContext : DbContextBase,
 
     DbSet<Invoice> IDbContext<Invoice>.GetDbSet() => Invoices;
 }
-<<<<<<< HEAD
 
 
 public sealed class AddressDbConfiguration : EntityGuidTypeConfiguration<Address>
@@ -85,5 +81,3 @@ public sealed class OrderItemDbConfiguration : EntityGuidTypeConfiguration<Order
 public sealed class ProductDbConfiguration : EntityGuidTypeConfiguration<Product>
 {
 }
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d

@@ -11,7 +11,6 @@ if (builder.Environment.IsDevelopment())
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-<<<<<<< HEAD
 builder.Services.AddUiSettings();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddUniCatalog(c => c.AllowUnknownCatalogs = false)
@@ -42,55 +41,13 @@ appBuilder.AddModule<Basket>()
 
 appBuilder.AddModule<Invoice>()
     .WithApiBuilder<ReadOnlyApiBuilder<Invoice>>();
-=======
-builder.Services.AddDistributedMemoryCache();
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 
-// Add UiSettings
-builder.Services.AddUiSettings();
-
-// Add Universal catalog
-builder.Services.AddUniCatalog(c => c.AllowUnknownCatalogs = false)
-    .WithCatalogs(c =>
-    {
-        c.AddCatalog("Countries");
-        c.AddCatalog("Towns");
-        c.AddCatalog("Banks");
-        c.AddCatalog("Currencies");
-        c.AddCatalog("ProductBrands");
-        c.AddCatalog("ProductCategories");
-    });
-
-// Add modules
-var appBuilder = builder.CreateAppBuilder(c =>
-{
-    c.AddAuditExtension();
-    c.AddPriceRecalculationExtension();
-    c.WithSqlServer<EShopDbContext>(useStoreInitializer: true);
-});
-
-appBuilder.AddModule<Address>();
-appBuilder.AddModule<BankAccount>();
-appBuilder.AddModule<Product, ProductDto, Product, Product, Guid>();
-    //.WithApiBuilder<ReadOnlyApiBuilder<Product, ProductDto, Product, Product, Guid>>();
-
-appBuilder.AddModule(new OrderModule());
-appBuilder.AddModule<Basket>()
-    .WithRepository<BasketRepository>();
-appBuilder.AddModule<Invoice>()
-    .WithApiBuilder<ReadOnlyApiBuilder<Invoice>>();
-
-// Build application
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-app.UseUiSettings();
-app.UseUniCatalog();
-app.UseModules();
-
 app.UseUiSettings();
 app.UseUniCatalog();
 app.UseModules();

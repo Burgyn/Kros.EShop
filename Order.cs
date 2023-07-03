@@ -1,8 +1,4 @@
 ﻿using FluentValidation;
-<<<<<<< HEAD
-=======
-using FluentValidation.Results;
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 using Kros.EShop;
 using Kros.Framework;
 using Kros.Framework.Core;
@@ -32,31 +28,9 @@ public class Order : AuditedEntity<Guid>, IEntityWithPrice
     IEnumerable<IEntityPriceItem> IEntityWithPrice.Items => Items;
 }
 
-<<<<<<< HEAD
 public interface IOrderWriteService : IWriteOnlyService<Order>
 {
     Task<Guid> CreateFromBasketAsync(TenantId tenantId, Guid baskedId, CancellationToken cancellationToken);
-=======
-public enum OrderStatus
-{
-    New,
-    InProgress,
-    Completed
-}
-
-public class OrderItem : Entity<Guid>, IEntityPriceItem
-{
-    public Guid ProductId { get; set; }
-    public decimal Amount { get; set; }
-    public decimal UnitPrice { get; set; }
-    public decimal TotalPrice { get; set; }
-}
-
-public interface IOrderWriteService : IWriteOnlyService<Order>
-{
-    Task<Guid> CreateFromBasketAsync(TenantId tenantId, Guid baskedId, CancellationToken cancellationToken);
-
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
     Task<bool> ChangeStatusAsync(TenantId tenantId, Guid orderId, OrderStatus status, CancellationToken cancellationToken);
 }
 
@@ -78,10 +52,6 @@ public class OrderWriteService : WriteOnlyService<Order>, IOrderWriteService
 
         // if basket doesnot exist, throw exception ...
 
-<<<<<<< HEAD
-=======
-        //map basket to order
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
         var order = new Order
         {
             OrderDate = DateTime.Now,
@@ -98,10 +68,7 @@ public class OrderWriteService : WriteOnlyService<Order>, IOrderWriteService
         };
 
         var result = await AddItemAsync(tenantId, order, cancellationToken);
-<<<<<<< HEAD
 
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
         return result.Match(
             success => success.Value,
             error => throw new InvalidOperationException());
@@ -133,10 +100,7 @@ public class OrderWriteService : WriteOnlyService<Order>, IOrderWriteService
 
 public record OrderStatusChangedMessage(Order Order) : IDomainEvent;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 public class OrderApiBuilder : ReadOnlyApiBuilder<Order>
 {
     public override void OnApiBuilding(ApiBuilderContext<Order, Order, Order, Order, Guid> context)
@@ -155,11 +119,7 @@ public class OrderApiBuilder : ReadOnlyApiBuilder<Order>
                 CancellationToken cancellation) =>
             {
                 var id = await orderService.CreateFromBasketAsync(tenantId, basketId, cancellation);
-<<<<<<< HEAD
                 return TypedResults.CreatedAtRoute(id, "GetOrderById", new { tenantId, id });
-=======
-                return TypedResults.CreatedAtRoute(id, "GetOrderById", new { tenantId, id});
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
             });
 
             builder.MapPut("/complete/{id}", Complete);
@@ -193,7 +153,6 @@ public class OrderModule : IModuleContext<Order>
     }
 }
 
-<<<<<<< HEAD
 public class OrderStatusChangeHandler : DomainEventHandlerBase<OrderStatusChangedMessage>
 {
     private readonly IWriteOnlyService<Invoice, Invoice, Invoice, Guid> _invoiceService;
@@ -219,22 +178,6 @@ public class OrderStatusChangeHandler : DomainEventHandlerBase<OrderStatusChange
             var invoice = _mapper.Map<Invoice>(domainEvent.Order);
             await _invoiceService.AddItemAsync(domainEvent.Order.TenantId, invoice, cancellationToken);
         }
-=======
-public class OrderEventHandler
-    : DomainEventHandlerBase<EntityCreatingEvent<Order>>,
-    IDomainEventHandler<EntityCreatedEvent<Order>>
-{
-    public override Task HandleAsync(EntityCreatingEvent<Order> domainEvent, CancellationToken cancellationToken)
-    {
-        domainEvent.Entity.Number ??= $"O-{DateTime.Now: yymmdd}-{DateTime.Now.TimeOfDay.Ticks}";
-        return Task.CompletedTask;
-    }
-
-    public Task HandleAsync(EntityCreatedEvent<Order> domainEvent, CancellationToken cancellationToken = default)
-    {
-        // ToDo: send email, ...
-        return Task.CompletedTask;
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
     }
 }
 
@@ -245,9 +188,4 @@ public class OrderValidator : AbstractValidator<Order>
     {
         RuleFor(x => x.EstimatedDeliveryDate).GreaterThanOrEqualTo(x => x.OrderDate);
     }
-<<<<<<< HEAD
-=======
-
-    public override ValidationResult Validate(ValidationContext<Order> context) => base.Validate(context);
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
 }

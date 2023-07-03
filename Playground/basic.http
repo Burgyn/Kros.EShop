@@ -51,11 +51,7 @@ Content-Type: application/json
 GET {{baseUrl}}/orders
 
 ### Complete order
-<<<<<<< HEAD
-PUT {{baseUrl}}/orders/complete/3faae69d-323e-49ea-281b-08db7b9ee0e1
-=======
-PUT {{baseUrl}}/orders/complete/badb1747-3f92-4ba8-be8a-08db770b7ad4
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
+PUT {{baseUrl}}/orders/complete/f6a6f7ea-3102-4462-9c05-08db7bb92091
 
 ### Get invoices
 GET {{baseUrl}}/invoices
