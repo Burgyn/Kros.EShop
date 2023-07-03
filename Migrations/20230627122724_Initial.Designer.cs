@@ -4,6 +4,7 @@ using Kros.EShop;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kros.EShop.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230627122724_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,10 +192,6 @@ namespace Kros.EShop.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Number")
-<<<<<<< HEAD
-                        .IsRequired()
-=======
->>>>>>> 1a354376180820a7389fdb0ecd42eaf3f1003b1d
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("OrderDate")
